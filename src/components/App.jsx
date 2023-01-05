@@ -1,4 +1,4 @@
-import user from '../path'
+import user from ''
 export const App = () => {
   return (
     <div>
