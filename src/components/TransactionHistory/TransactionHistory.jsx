@@ -1,6 +1,6 @@
-import css from './Transaction.module.css';
+import  './TransactionHistory.module.css';
 import PropTypes from 'prop-types';
-import { Statistics } from 'components/Statistics/Statistics';
+
 
 const createColor = () => {
     const color =
@@ -17,28 +17,36 @@ const createColor = () => {
     return color;
 }
  
-export const Statistics = ({ title, stats }) => {
+export const TransactionHistory = ({ items }) => {
     return (
-        <section className={css.statistics}>
-            {title && <h2 className={css.title}>{title}</h2>}
+        <table>
+            <thead>
+                <tr style={{backgroundColor: createColor()}}>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                </tr>
+            </thead>
 
-            <ul className={css.stats__list}>
-                {stats.map(({ id, label, percentage }) => {
+            <tbody>
+                {items.map(({ id, type, amount, currency }) => {
                     return (
-                        <li className={css.stats}
-                            key={id}
-                            style={{ backgroundColor: createColor() }}>
-                            <span className={css.label}>{label}</span>
-                            <span className={css.percentage}>{percentage}</span>
-                        </li>
+                        <tr
+                            key={id} style={{ backgroundColor: createColor() }} >
+                            <td>{type}</td>
+                            <td>{amount}</td>
+                            <td>{currency}</td>
+                        </tr>
                     );
                 })}
-            </ul>
-        </section>
+            </tbody>
+        </table>
     );
 };
 
-Statistics.propTypes = {
-    label: propTypes.string.isRequired,
-    percentage: propTypes.number.isRequired,
+TransactionHistory.propTypes = {
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
 };
