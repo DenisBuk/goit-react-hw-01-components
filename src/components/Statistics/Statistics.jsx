@@ -36,7 +36,7 @@ export const Statistics = ({ title, stats }) => {
                 })}
             </ul>
         </section>
-    );
+    )
 };
 
 Statistics.propTypes = {

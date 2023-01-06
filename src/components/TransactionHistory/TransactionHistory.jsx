@@ -21,7 +21,7 @@ export const TransactionHistory = ({ items }) => {
     return (
         <table>
             <thead>
-                <tr style={{backgroundColor: createColor()}}>
+                <tr style={{ backgroundColor: createColor() }}>
                     <th>Type</th>
                     <th>Amount</th>
                     <th>Currency</th>
